@@ -18,6 +18,7 @@ jobs:
       - name: changed directories
         uses: tj-actions/changed-files@v44
         with:
+          path: './charts'
           dir_names: true
 
       - name: List all changed files
