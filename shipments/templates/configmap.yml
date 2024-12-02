@@ -1,0 +1,6 @@
+{{- include "base-deployment.configmap" (list . "shipments.configmap") -}}
+{{- define "shipments.configmap" -}}
+data:
+    message: "hello-world"
+
+{{- end -}}

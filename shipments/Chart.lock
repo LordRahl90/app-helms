@@ -1,0 +1,6 @@
+dependencies:
+- name: base-deployment
+  repository: file://../base-deployment
+  version: 0.1.0
+digest: sha256:67c026b58e53ae962964646c4f3698cec2618937588404e20a66be7ec0614255
+generated: "2024-11-23T01:27:59.812665+01:00"

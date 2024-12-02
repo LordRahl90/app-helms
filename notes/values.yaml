@@ -1,0 +1,17 @@
+labels:
+  tier: backend
+  app: notes
+
+deployment:
+  replicas: 5
+  image: "lordrahl/notes"
+  resources:
+    memory: "64Mi"
+    cpu: "128m"
+
+service:
+  targetPort: 8080
+
+secrets:
+  enabled: false
+  name: shipments-secret

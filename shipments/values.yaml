@@ -1,0 +1,39 @@
+namespace: staging
+config:
+  enabled: true
+  values:
+    foo: bar
+
+# secrets:
+  # name: shipments-secret
+
+labels:
+  tier: frontend
+
+deployment:
+  replicas: 10
+  image: "lordrahl/shipments"
+  resources:
+    memory: "64Mi"
+    cpu: "250m"
+
+service:
+  targetPort: 8080
+
+ingress:
+  host: "ing-shipments.lordrahl.ng"
+  annotations:
+      kubernetes.io/ingress.class: "alb"
+      # - external-dns.alpha.kubernetes.io/hostname: email-service.qalort.com
+      # - ingress.k8s.aws/stack: "default"
+      # - cert-manager.io/cluster-issuer: test-selfsigned,
+      # - alb.ingress.kubernetes.io/group.name: "external-service"
+      # - alb.ingress.kubernetes.io/target-type: "ip"
+      # - alb.ingress.kubernetes.io/scheme: "internet-facing"
+      # - alb.ingress.kubernetes.io/success-codes: "200,302"
+      # ### SSL Redirect Setting ###
+      # - alb.ingress.kubernetes.io/listen-ports: '[{"HTTPS":443}, {"HTTP":80}]'
+      # - alb.ingress.kubernetes.io/certificate-arn: arn:aws:acm:us-east-2:468068433287:certificate/1a93911a-6599-4b95-9b3c-b4f3a3680bff
+      # - alb.ingress.kubernetes.io/actions.ssl-redirect: '{"Type": "redirect", "RedirectConfig": { "Protocol": "HTTPS", "Port": "443", "StatusCode": "HTTP_301"}}'
+
+    
