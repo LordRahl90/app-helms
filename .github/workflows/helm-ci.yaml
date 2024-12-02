@@ -22,7 +22,8 @@ jobs:
           path: './charts'
           dir_names: true
           dir_names_max_depth: '1'
-          escape_json: 'true'
+          json: 'true'
+          escape_json: 'false'
 
       - name: List all changed files
         env:
@@ -38,11 +39,14 @@ jobs:
     needs: changed-paths
     strategy:
       matrix:
-        package: ${{ fromJson(needs.changed-paths.outputs.changed) }}
+        package: ${{ fromJSON(needs.changed-paths.outputs.changed) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+
+      - name: Set up Helm
+        uses: azure/setup-helm@v4
 
       - name: Echo Received Files
         env:
