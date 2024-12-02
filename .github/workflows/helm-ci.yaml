@@ -57,3 +57,11 @@ jobs:
         run: |
           echo "Dry Run ${{ matrix.package }}"
           helm template ./charts/${{ matrix.package }}
+
+      - name: Release Chart
+        uses: helm/chart-releaser-action@v1.6.0
+        with:
+          skip_existing: true
+          packages_with_index: true
+        env:
+          CR_TOKEN: "${{ secrets.G_ACCESS_TOKEN }}"
