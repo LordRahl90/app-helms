@@ -1,0 +1,33 @@
+apiVersion: v1
+entries:
+  notes:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-12-02T23:47:51.388594+01:00"
+    dependencies:
+    - name: base-deployment
+      repository: https://lordrahl90.github.io/base-deployment
+      version: 0.1.0
+    description: A Helm chart for deploying notes service
+    digest: 807cd2bfb466f08434d6318e6aefd6165392fdb0a0251974023ea4b1902e61ee
+    name: notes
+    type: application
+    urls:
+    - https://lordrahl90.github.io/app-helms/notes-0.1.0.tgz
+    version: 0.1.0
+  shipments:
+  - apiVersion: v2
+    appVersion: 1.16.0
+    created: "2024-12-02T23:47:51.388817+01:00"
+    dependencies:
+    - name: base-deployment
+      repository: file://../base-deployment
+      version: 0.1.0
+    description: A Helm chart for Kubernetes
+    digest: 7499c3c48f3a5d6e128dbf3b896e619c0eb2bcfe1c8412e6587df924a4f4df19
+    name: shipments
+    type: application
+    urls:
+    - https://lordrahl90.github.io/app-helms/shipments-0.1.0.tgz
+    version: 0.1.0
+generated: "2024-12-02T23:47:51.388104+01:00"
