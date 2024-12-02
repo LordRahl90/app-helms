@@ -2,5 +2,5 @@
 {{- define "shipments.configmap" -}}
 data:
     message: "hello-world"
-    COMMENT: "allowsssdsmm"
+    COMMENT: "allowsssdsm"
 {{- end -}}
