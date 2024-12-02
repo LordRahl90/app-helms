@@ -48,17 +48,12 @@ jobs:
       - name: Set up Helm
         uses: azure/setup-helm@v4
 
-      - name: Echo Received Files
-        env:
-          ALL_CHANGED_FILES: ${{ needs.changed-paths.outputs.changed }}
-        run: |
-          echo "Hello World"
-          echo "$ALL_CHANGED_FILES"
-          for file in ${ALL_CHANGED_FILES}; do
-            echo "$file was changed"
-          done
-
       - name: Lint
         run: |
           echo "Linting ${{ matrix.package }}"
           helm lint ./charts/${{ matrix.package }}
+
+      - name: Dry Run
+        run: |
+          echo "Dry Run ${{ matrix.package }}"
+          helm template ./charts/${{ matrix.package }}
