@@ -1,6 +1,6 @@
 dependencies:
 - name: base-deployment
-  repository: file://../base-deployment
+  repository: https://lordrahl90.github.io/base-deployment
   version: 0.1.0
-digest: sha256:67c026b58e53ae962964646c4f3698cec2618937588404e20a66be7ec0614255
-generated: "2024-12-01T01:57:23.822359+01:00"
+digest: sha256:33d2869298d35ec6f77df710117d84f1e6d58a7760d045abc3297dc06f0df692
+generated: "2024-12-02T23:31:36.454243+01:00"
