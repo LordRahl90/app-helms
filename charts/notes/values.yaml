@@ -14,4 +14,4 @@ service:
 
 secrets:
   enabled: false
-  name: shipments-secret
+  name: shipments-secrets
