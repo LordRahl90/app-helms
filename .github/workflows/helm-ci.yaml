@@ -37,7 +37,7 @@ jobs:
     needs: changed-paths
     strategy:
       matrix:
-        package: ${{ fromJson(needs.changed-paths.outputs.changed) }}
+        package: ${{ fromJson(needs.changed-path.outputs.all_changed_files) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
