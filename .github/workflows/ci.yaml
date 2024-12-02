@@ -10,12 +10,13 @@ jobs:
   changed-paths:
     runs-on: ubuntu-latest
     outputs:
-      changed: ${{ steps.changed-paths.outputs.all_changed_files }}
+      changed: ${{ steps.changed-path.outputs.all_changed_files }}
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
       - name: changed directories
+        id: changed-path
         uses: tj-actions/changed-files@v44
         with:
           path: './charts'
@@ -23,7 +24,7 @@ jobs:
 
       - name: List all changed files
         env:
-          ALL_CHANGED_FILES: ${{ steps.changed-paths.outputs.all_changed_files }}
+          ALL_CHANGED_FILES: ${{ steps.changed-path.outputs.all_changed_files }}
         run: |
           echo "Hello World"
           echo "$ALL_CHANGED_FILES"
