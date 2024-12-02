@@ -4,5 +4,5 @@ data:
   OTEL_EXPORTER_OTLP_ENDPOINT: http://otel-lgtm:4317
   OTEL_EXPORTER_OTLP_INSECURE: "true"
   OTEL_METRIC_EXPORT_INTERVAL: "5000"
-  COMMENT: "allowsem"
+  COMMENT: "allowsemss"
 {{- end -}}

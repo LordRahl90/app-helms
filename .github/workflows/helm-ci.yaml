@@ -35,15 +35,25 @@ jobs:
 
   linting:
     needs: changed-paths
-    strategy:
-      matrix:
-        package: ${{ fromJson(needs.changed-paths.outputs.all_changed_files) }}
+#    strategy:
+#      matrix:
+#        package: ${{ fromJson(needs.changed-paths.outputs.all_changed_files) }}
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Lint
+      - name: Echo Received Files
+        env:
+          ALL_CHANGED_FILES: ${{ needs.changed-paths.outputs.changed }}
         run: |
-          echo "Linting ${{ matrix.package }}"
-          helm lint ./charts/${{ matrix.package }}
+          echo "Hello World"
+          echo "$ALL_CHANGED_FILES"
+          for file in ${ALL_CHANGED_FILES}; do
+            echo "$file was changed"
+          done
+
+#      - name: Lint
+#        run: |
+#          echo "Linting ${{ matrix.package }}"
+#          helm lint ./charts/${{ matrix.package }}
