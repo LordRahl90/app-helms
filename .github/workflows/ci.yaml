@@ -23,16 +23,16 @@ jobs:
             changed:
               - 'charts/**'
 
-    linting:
-      needs: changed-paths
-      strategy:
-        matrix:
-          package: ${{ fromJson(needs.changed-paths.outputs.changed) }}
-      runs-on: ubuntu-latest
-      steps:
-        - name: Checkout
-          uses: actions/checkout@v4
+  linting:
+    needs: changed-paths
+    strategy:
+      matrix:
+        package: ${{ fromJson(needs.changed-paths.outputs.changed) }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
 
-        - name: Lint
-          run: |
-            helm lint ./charts/${{ matrix.package }}
+      - name: Lint
+        run: |
+          helm lint ./charts/${{ matrix.package }}
